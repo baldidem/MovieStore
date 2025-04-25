@@ -49,7 +49,6 @@ namespace MovieStore.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
         public IActionResult GetAll()
         {
             var customers = _context.Customers.Include(c => c.FavoriteGenres).ThenInclude(fg => fg.Genre).ToList();

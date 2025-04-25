@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MovieStore.Context;
 using MovieStore.Domain;
@@ -21,7 +19,6 @@ namespace MovieStore.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         public IActionResult Create(ActorDto dto)
         {
             var actor = _mapper.Map<Actor>(dto);
@@ -31,7 +28,6 @@ namespace MovieStore.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
         public IActionResult Update(int id, ActorDto dto)
         {
             var actor = _context.Actors.Find(id);
@@ -42,7 +38,6 @@ namespace MovieStore.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             var actor = _context.Actors.Find(id);

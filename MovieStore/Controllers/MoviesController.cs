@@ -22,7 +22,6 @@ namespace MovieStore.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
         public IActionResult Create(MovieDto dto)
         {
             var movie = _mapper.Map<Movie>(dto);
@@ -34,7 +33,6 @@ namespace MovieStore.Controllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize(Roles = "Admin")]
         public IActionResult Update(int id, MovieDto dto)
         {
             var existing = _context.Movies.Find(id);
@@ -45,7 +43,6 @@ namespace MovieStore.Controllers
         }
 
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             var movie = _context.Movies.Find(id);

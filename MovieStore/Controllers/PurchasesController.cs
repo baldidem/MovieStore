@@ -41,7 +41,6 @@ namespace MovieStore.Controllers
         }
 
         [HttpGet("customer/{customerId}")]
-        //[Authorize(Roles = "Customer")]
         public IActionResult GetByCustomer(int customerId)
         {
             var purchases = _context.Purchases
@@ -54,7 +53,6 @@ namespace MovieStore.Controllers
         }
 
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             var purchase = _context.Purchases.Find(id);

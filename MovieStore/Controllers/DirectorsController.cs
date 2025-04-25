@@ -20,7 +20,6 @@ namespace MovieStore.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         public IActionResult Create(DirectorDto dto)
         {
             var director = _mapper.Map<Director>(dto);
@@ -30,7 +29,6 @@ namespace MovieStore.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
         public IActionResult Update(int id, DirectorDto dto)
         {
             var director = _context.Directors.Find(id);
@@ -41,7 +39,6 @@ namespace MovieStore.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             var director = _context.Directors.Find(id);
